@@ -14,8 +14,9 @@ public class MyLinkedList<T> {
     public MyLinkedList(T a1, int a2, int a3, int a4, int a5, int a6) {
 
         int Znach = (int) a1;
-        Zveno Z1 = new Zveno(-1,1, Znach);
-        Znach = (int) a2;
+        //Zveno Z1 = new Zveno(Z1,Z1, Znach);
+
+        /*Znach = (int) a2;
         Zveno Z2 = new Zveno(0,2, Znach);
         Znach = (int) a3;
         Zveno Z3 = new Zveno(1,3, Znach);
@@ -37,6 +38,8 @@ public class MyLinkedList<T> {
         //this.lastElement = a10;
 
         //this.NumberOfElements = 10;
+
+         */
     }
 
 

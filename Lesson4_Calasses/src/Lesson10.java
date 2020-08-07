@@ -2,9 +2,25 @@ public class Lesson10 {
 
     public static void main(String[] args) {
 
-        //Zveno a1 = new Zveno();
+        Zveno Z1 = new Zveno();
+        Z1.Prev = Z1;
+        Z1.Next = Z1;
+        Z1.element = 0;
 
-        MyLinkedList  LinkedList1 = new MyLinkedList(3,5,7,8,9,6);
+        Zveno Z2 = new Zveno();
+        Z2.Prev = Z1;
+        Z2.Next = Z2;
+        Z2.element = 1;
+
+        Zveno Z3 = Z2.addAfter(Z2, 55);
+        Zveno Z4 = Z3.addBefore(Z3, 48);
+
+        System.out.println(Z1.toString());
+        System.out.println(Z2.toString());
+        System.out.println(Z4.toString());
+        System.out.println(Z3.toString());
+
+        /*MyLinkedList  LinkedList1 = new MyLinkedList(3,5,7,8,9,6);
 
         System.out.println(LinkedList1.toString());
 
@@ -13,6 +29,8 @@ public class Lesson10 {
             System.out.println(z.Znach);
 
         }
+
+         */
 
         /*
         ArrList.Add(15.5);
