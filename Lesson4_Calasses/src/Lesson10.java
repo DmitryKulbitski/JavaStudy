@@ -7,18 +7,37 @@ public class Lesson10 {
         Z1.Next = Z1;
         Z1.element = 0;
 
-        Zveno Z2 = new Zveno();
+        /*Zveno Z2 = new Zveno();
         Z2.Prev = Z1;
         Z2.Next = Z2;
         Z2.element = 1;
 
-        Zveno Z3 = Z2.addAfter(Z2, 55);
-        Zveno Z4 = Z3.addBefore(Z3, 48);
+        Z1.Next = Z2;
 
+         */
+
+        MyLinkedList LL1 = new MyLinkedList(Z1, Z1);
+        Zveno Z2 = LL1.addAfter(Z1, 20);
+
+        Zveno Z3 = LL1.addAfter(Z2, 55);
+
+        //System.out.println(Z3.toString());
+
+
+        Zveno Z4 = LL1.addAfter(Z3, 48);
+
+        Zveno Z5 = LL1.addEnd(63);
+
+        /*
         System.out.println(Z1.toString());
         System.out.println(Z2.toString());
         System.out.println(Z4.toString());
         System.out.println(Z3.toString());
+
+        //MyLinkedList LL1 = new MyLinkedList(Z1, Z2);
+         */
+
+        System.out.println(LL1.toString());
 
         /*MyLinkedList  LinkedList1 = new MyLinkedList(3,5,7,8,9,6);
 

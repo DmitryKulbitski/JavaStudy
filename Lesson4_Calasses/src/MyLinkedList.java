@@ -1,9 +1,13 @@
+import javax.lang.model.type.NullType;
 import java.util.Arrays;
 
 public class MyLinkedList<T> {
 
-    //private Object Zveno;
-    T[] arr = (T[]) new Zveno[6];
+    Zveno Header;
+    Zveno Tail;
+
+        //private Object Zveno;
+    //T[] arr = (T[]) new Zveno[6];
 
     /*int NumberOfElements;
 
@@ -11,9 +15,275 @@ public class MyLinkedList<T> {
 
      */
 
-    public MyLinkedList(T a1, int a2, int a3, int a4, int a5, int a6) {
+    public MyLinkedList(Zveno Header, Zveno Tail) {
 
-        int Znach = (int) a1;
+        this.Header = Header;
+        this.Tail   = Tail;
+    }
+
+    public Zveno addBefore(Zveno<T> Z1, T element){
+
+        Zveno<T> Z2 = new Zveno<T>();
+
+        if(Z1 != this.Tail && Z1 != this.Header){
+
+            Z2.Prev = Z1.Prev;
+            Z2.Next = Z1;
+            Z2.element = element;
+
+
+            Z1.Prev.Next = Z2;
+            Z1.Prev = Z2;
+            return Z2;
+
+        }
+        else {
+
+            if(Z1 == this.Header ){
+                if((this.Header != this.Tail)){
+                    Z2.Prev = Z1.Prev;
+                    Z2.Next = Z1;
+                    Z2.element = element;
+
+
+                    Z1.Prev.Next = Z2;
+                    Z1.Prev = Z2;
+
+
+                    return Z2;
+                }
+                else{
+
+                    Z2.Prev = Z2;
+                    Z2.Next = Z1;
+                    Z2.element = element;
+
+                    Z1.Prev = Z2;
+
+                    this.Header = Z2;
+                    return Z2;
+
+
+                }
+            }
+
+            if(Z1 == this.Tail ){
+                if((this.Header != this.Tail)){
+                    Z2.Prev = Z1.Prev;
+                    Z2.Next = Z1;
+                    Z2.element = element;
+
+
+                    Z1.Prev.Next = Z2;
+                    Z1.Prev = Z2;
+
+
+                    return Z2;
+                }
+                else{
+
+                    Z2.Prev = Z2;
+                    Z2.Next = Z1;
+                    Z2.element = element;
+
+                    Z1.Prev = Z2;
+
+                    this.Header = Z2;
+                    return Z2;
+
+
+                }
+            }
+        }
+
+        return Z2;
+
+    }
+
+    public Zveno addAfter(Zveno<T> Z1, T element){
+
+        Zveno<T> Z2 = new Zveno<T>();
+
+        if(Z1 != this.Tail &&  Z1 != this.Header){
+
+            Z2.Next = Z1.Next;
+            Z2.Prev = Z1;
+
+            Z2.element = element;
+
+            Z1.Next.Prev = Z2;
+            Z1.Next = Z2;
+        }
+        else{
+            if(Z1 == this.Header ){
+                if((this.Header != this.Tail)){
+
+                    Z2.Next = Z1.Next;
+                    Z2.Prev = Z1;
+
+                    Z2.element = element;
+
+                    Z1.Next.Prev = Z2;
+                    Z1.Next = Z2;
+                    return Z2;
+                }
+                else{
+                    Z2.Next = Z2;
+                    Z2.Prev = Z1;
+
+                    Z1.Next = Z2;
+                    Z1.Prev = Z1;
+
+                    Z2.element = element;
+
+                    this.Header = Z1;
+                    this.Tail = Z2;
+
+                    return Z2;
+                }
+
+
+            }
+
+
+            if(Z1 == this.Tail){
+                if((this.Header != this.Tail)){
+
+                    Z2.Next = Z2;
+                    Z2.Prev = Z1;
+
+                    Z2.element = element;
+
+                    //Z1.Next.Prev = Z2;
+                    Z1.Next = Z2;
+                    this.Tail = Z2;
+
+                }
+                else{
+                    Z2.Next = Z2;
+                    Z2.Prev = Z1;
+
+                    Z2.element = element;
+
+                    Z1.Next = Z2;
+                    Z1.Prev = Z1;
+
+                    this.Header = Z1;
+                    this.Tail = Z2;
+
+                }
+
+            }
+
+            //Z2.Next = Z1.Next;
+            //Z2.Prev = Z1;
+
+            //Z2.element = element;
+
+            //Z1.Next = Z2;
+
+        }
+
+
+        //Prev.Next = Z2;
+
+        return Z2;
+
+    }
+
+    public Zveno addEnd(T element){
+        Zveno<T> Z1 = this.Tail;
+
+        Zveno<T> Z2 = new Zveno<T>();
+
+        if(Z1 != this.Tail &&  Z1 != this.Header){
+
+            Z2.Next = Z1.Next;
+            Z2.Prev = Z1;
+
+            Z2.element = element;
+
+            Z1.Next.Prev = Z2;
+            Z1.Next = Z2;
+        }
+        else{
+            if(Z1 == this.Header ){
+                if((this.Header != this.Tail)){
+
+                    Z2.Next = Z1.Next;
+                    Z2.Prev = Z1;
+
+                    Z2.element = element;
+
+                    Z1.Next.Prev = Z2;
+                    Z1.Next = Z2;
+                    return Z2;
+                }
+                else{
+                    Z2.Next = Z2;
+                    Z2.Prev = Z1;
+
+                    Z1.Next = Z2;
+                    Z1.Prev = Z1;
+
+                    Z2.element = element;
+
+                    this.Header = Z1;
+                    this.Tail = Z2;
+
+                    return Z2;
+                }
+
+
+            }
+
+
+            if(Z1 == this.Tail){
+                if((this.Header != this.Tail)){
+
+                    Z2.Next = Z2;
+                    Z2.Prev = Z1;
+
+                    Z2.element = element;
+
+                    //Z1.Next.Prev = Z2;
+                    Z1.Next = Z2;
+                    this.Tail = Z2;
+
+                }
+                else{
+                    Z2.Next = Z2;
+                    Z2.Prev = Z1;
+
+                    Z2.element = element;
+
+                    Z1.Next = Z2;
+                    Z1.Prev = Z1;
+
+                    this.Header = Z1;
+                    this.Tail = Z2;
+
+                }
+
+            }
+
+            //Z2.Next = Z1.Next;
+            //Z2.Prev = Z1;
+
+            //Z2.element = element;
+
+            //Z1.Next = Z2;
+
+        }
+
+
+        //Prev.Next = Z2;
+
+        return Z2;
+
+    }
+
+        //int Znach = (int) a1;
         //Zveno Z1 = new Zveno(Z1,Z1, Znach);
 
         /*Znach = (int) a2;
@@ -40,7 +310,7 @@ public class MyLinkedList<T> {
         //this.NumberOfElements = 10;
 
          */
-    }
+
 
 
 
@@ -142,15 +412,25 @@ public class MyLinkedList<T> {
 
     @Override
     public String toString() {
-       /* return "MyLinkedList{" +
-                "arr=" + Arrays.toString(arr) +
-                '}';
 
-        */
-         return "MyLinkedList{" +
-                "arr=" + Arrays.toString(arr) +
-                '}';
+        String Str = "";
+        Zveno Z1 = Header;
 
+        int i = 0;
+
+        do{
+            Str = Str + " Z"+ i + " = " + Z1.element + ";";
+            Z1 = Z1.Next;
+            i++;
+
+            if (Z1 == this.Tail){
+                Str = Str + " Z"+ i + " = " + Z1.element + ";";
+            }
+
+        }
+        while(Z1!= Tail.Next);
+
+        return "MyLinkedList{" + Str + "}";
 
     }
 }
